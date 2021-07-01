@@ -1,5 +1,7 @@
 package com.buenoponto.controledeponto.model;
 
+import javax.persistence.ManyToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -13,9 +15,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
-public class JornadaTrabalho {
+public class Localidade {
 
 	private long id;
+	@ManyToOne
+	private NivelAcesso nivelAcesso;
 	private String descricao;
 
 }
