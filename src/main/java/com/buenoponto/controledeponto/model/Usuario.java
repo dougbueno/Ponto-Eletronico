@@ -3,8 +3,9 @@ package com.buenoponto.controledeponto.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,8 +20,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class Usuario {
 
+	@Id
 	private long id;
 	private String nomeUsuario;
 	private BigDecimal tolerancia;
@@ -35,5 +38,4 @@ public class Usuario {
 	@ManyToOne
 	private JornadaTrabalho jornadaTrabalho;
 
-	
 }

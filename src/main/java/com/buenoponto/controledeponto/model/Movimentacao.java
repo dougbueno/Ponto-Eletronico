@@ -1,8 +1,14 @@
 package com.buenoponto.controledeponto.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
-import javax.persistence.Embedded;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,14 +23,26 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class Movimentacao {
 
-	
-	public class movimentacaoId implements Serializable{
-
-		private static final long serialVersionUID = 1903401546626937237L;
-		
-		
+	@AllArgsConstructor
+	@NoArgsConstructor
+	@EqualsAndHashCode
+	@Embeddable
+	public class MovimentacaoId implements Serializable {
+		private long idMovimento;
+		private long idUsuario;
 	}
-	
+
+	@Id
+	@EmbeddedId
+	private MovimentacaoId movimentacaoId;
+	private LocalDateTime dataEntrada;
+	private LocalDateTime dataSaida;
+	private BigDecimal periodo;
+	@ManyToOne
+	private Ocorrencia ocorrencia;
+	@ManyToOne
+	private Calendario calendario;
 }

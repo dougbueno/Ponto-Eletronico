@@ -1,5 +1,7 @@
 package com.buenoponto.controledeponto.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
@@ -15,8 +17,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class Localidade {
 
+	@Id
 	private long id;
 	@ManyToOne
 	private NivelAcesso nivelAcesso;
